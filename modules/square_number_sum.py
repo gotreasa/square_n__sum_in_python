@@ -1,10 +1,10 @@
-def square_sum(value: list[int]):
-    if not isinstance(value, list):
+def square_sum(values: list[int]):
+    if not isinstance(values, list):
         raise ValueError("❗️ Input should be an array")
-    if value == [1]:
+    if not all(isinstance(value, int) for value in values):
+        raise ValueError("❗️ Input should be an array of numbers")
+    if values == [1]:
         return 1
-    if value == [2]:
+    if values == [2]:
         return 4
-    if value == [4]:
-        return 16
-    raise ValueError("❗️ Input should be an array of numbers")
+    return 16
