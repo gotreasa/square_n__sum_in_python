@@ -1,0 +1,26 @@
+ARG PYTHON_VERSION=3.12
+FROM python:${PYTHON_VERSION}-slim
+
+ARG PORT_DEFAULT=8000
+ENV PORT=$PORT_DEFAULT
+
+ARG HOST_ACCEPT_CONNECTION_FROM_OUTSIDE=0.0.0.0
+ENV HOST=$HOST_ACCEPT_CONNECTION_FROM_OUTSIDE
+
+WORKDIR /app
+
+RUN mkdir modules
+
+COPY Pipfile Pipfile.lock ./
+COPY modules /app/modules/
+
+RUN pip install --no-cache-dir --upgrade pipenv && \
+    python -m pip install --upgrade --no-cache-dir pip && \
+    pipenv install --system --deploy && \
+    echo "#!/usr/bin/env bash" > /app/start_api_server && \
+    echo "uvicorn modules.api.dummy_app:app --host ${HOST} --port ${PORT}" >> /app/start_api_server && \
+    chmod 755 /app/start_api_server
+
+EXPOSE $PORT
+
+ENTRYPOINT ["/app/start_api_server"]
