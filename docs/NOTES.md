@@ -17,4 +17,4 @@
 - ✅ should return 16 when the input is [4]
 - ✅ should return 9 when the input is [1, 2, 2]
 - ✅ should return 22 when the input is [2, 3, 3]
-- 🚧 should return 16 when the input is [2, 2, 2, 2]
+- ✅ should return 16 when the input is [2, 2, 2, 2]
