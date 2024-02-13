@@ -28,3 +28,7 @@ def describe_square_sum():
     def should_return_9_when_input_1_2_2():
         """🧪 should return 9 when the input is [1, 2, 2]"""
         assert square_number_sum.square_sum([1, 2, 2]) == 9
+
+    def should_return_22_when_input_2_3_3():
+        """🧪 should return 22 when the input is [2, 3, 3]"""
+        assert square_number_sum.square_sum([2, 3, 3]) == 22
