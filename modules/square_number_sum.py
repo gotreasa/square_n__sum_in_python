@@ -1,2 +1,2 @@
-def print_the_title():
-    print("😊 Welcome to Dummy Kata")
+def square_sum(value: list[int]):
+    raise ValueError("❗️ Input should be an array")

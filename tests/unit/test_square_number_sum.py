@@ -1,9 +1,9 @@
+import pytest
 from modules import square_number_sum
 
 
-def describe_dummy_kata():
-    def should_print_title(capsys):
-        """🧪 expect the dummy kata prints the title"""
-        square_number_sum.print_the_title()
-        out, _err = capsys.readouterr()
-        assert "😊 Welcome to Dummy Kata" in out
+def describe_square_sum():
+    def should_error_when_input_not_array(capsys):
+        """🧪 should error when the input is not an array"""
+        with pytest.raises(ValueError, match="❗️ Input should be an array"):
+            square_number_sum.square_sum("blah")
