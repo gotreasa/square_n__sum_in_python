@@ -16,3 +16,7 @@ def describe_square_sum():
     def should_return_1_when_input_1():
         """🧪 should return 1 when the input is [1]"""
         assert square_number_sum.square_sum([1]) == 1
+
+    def should_return_4_when_input_2():
+        """🧪 should return 4 when the input is [2]"""
+        assert square_number_sum.square_sum([2]) == 4
